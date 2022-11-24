@@ -5,23 +5,24 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraControl : MonoBehaviour
 {
+    public static float maxZoom = 10;
+    public static float minZoom = 1;
     void Update()
     {
         float scrollFactor = Input.GetAxis("Mouse ScrollWheel");
         if (scrollFactor != 0)
         {
-            Debug.Log("Scrolling");
             Camera camera = GetComponent<Camera>();
             camera.orthographicSize = camera.orthographicSize * (1f - scrollFactor);// Изменяем дальность камеры при помощи вращения мастшаба сферы
 
             // Ограничиваем макс и мин дальность камеры
-            if (camera.orthographicSize < 1)
+            if (camera.orthographicSize < minZoom)
             {
-                camera.orthographicSize = 1;
+                camera.orthographicSize = minZoom;
             }
-            if (camera.orthographicSize > 5)
+            if (camera.orthographicSize > maxZoom)
             {
-                camera.orthographicSize = 5;
+                camera.orthographicSize = maxZoom;
             }
         }
     }

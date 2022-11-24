@@ -3,5 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Mediator
 {
-    public static GameObject Player;
+    public static Player Player;
+    public static List<Entity> Enemies = new List<Entity>();
 }
