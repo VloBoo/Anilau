@@ -6,10 +6,31 @@ public class Zombe : Enemy
     }
     public override void PlayerNear(Vector3 direction)
     {
-        base.PlayerNear(direction);
-        if (direction.magnitude < 1)
+        if (direction.x > 0)
         {
-            //Mediator.Player.TakeDamage(10);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        if (direction.magnitude > 0.3f)
+        {
+            direction.Normalize();
+            gameObject.transform.position += direction * Time.deltaTime * speed;
+
+        }
+        if (direction.magnitude < 0.5f)
+        {
+            if (cooldown != 0)
+            {
+                cooldown--;
+            }
+            else
+            {
+                Mediator.Player.TakeDamage(MakeDamage());
+                cooldown = 40;
+            }
         }
     }
 }

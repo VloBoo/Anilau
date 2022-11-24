@@ -5,4 +5,16 @@ public class Mediator
 {
     public static Player Player;
     public static List<Entity> Enemies = new List<Entity>();
+
+
+    public static void GameEnd(){
+
+    }
+
+    public static void Menu(){
+
+    }
+    public static void GameStart(){
+
+    }
 }

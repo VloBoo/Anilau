@@ -33,5 +33,10 @@ public class PlayerControl : MonoBehaviour
             transform.position += new Vector3(1, 0, 0) * Time.deltaTime * me.Speed;
             GetComponent<SpriteRenderer>().flipX = true;
         }   
+
+        if(me.CurrentlyHealth <= 0)
+        {
+            me.Die();
+        }
     }
 }

@@ -13,6 +13,9 @@ public class Entity
     protected int currentlyPower;
     protected float speed;
 
+
+    protected int cooldown = 0;
+
     public Entity()
     {
         gameObject = new GameObject();
@@ -104,4 +107,22 @@ public class Entity
     {
         return "Entity" + GetHashCode() + "(Name: " + name + ", Level: " + level + ")";
     }
+
+
+    public virtual void TakeDamage(float damage)
+    {
+        currentlyHealth -= (int)((1f - damage * 0.01) * baseProtection);
+        Debug.Log("Attak");
+    }
+
+    public virtual float MakeDamage()
+    {
+        return baseAttack;
+    }
+
+    public virtual void Die(){
+
+    }
+
+
 }
