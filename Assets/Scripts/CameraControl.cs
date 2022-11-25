@@ -9,6 +9,10 @@ public class CameraControl : MonoBehaviour
     public static float minZoom = 1;
     void Update()
     {
+        if (Mediator.CameraTarget != null)
+        {
+            transform.position = new Vector3(Mediator.CameraTarget.position.x, Mediator.CameraTarget.position.y, transform.position.z);
+        }
         float scrollFactor = Input.GetAxis("Mouse ScrollWheel");
         if (scrollFactor != 0)
         {

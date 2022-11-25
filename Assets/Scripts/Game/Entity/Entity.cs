@@ -112,7 +112,6 @@ public class Entity
     public virtual void TakeDamage(float damage)
     {
         currentlyHealth -= (int)((1f - damage * 0.01) * baseProtection);
-        Debug.Log("Attak");
     }
 
     public virtual float MakeDamage()
@@ -121,7 +120,6 @@ public class Entity
     }
 
     public virtual void Die(){
-
     }
 
 

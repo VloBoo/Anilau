@@ -12,4 +12,14 @@ public class Player : Entity
         Mediator.GameEnd();
     }
 
+    public void Attack1()
+    {
+        foreach (Enemy enemy in Mediator.Enemies){
+            if (Vector3.Distance(gameObject.transform.position, enemy.GameObject.transform.position) < 1)
+            {
+                enemy.TakeDamage(MakeDamage());
+            }
+        }
+    }
+
 }

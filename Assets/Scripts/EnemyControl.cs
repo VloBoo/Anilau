@@ -19,15 +19,23 @@ public class EnemyControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Mediator.Player != null)
+        if (Mediator.GameMod == 1)
         {
-            Vector3 playerPosition = Mediator.Player.GameObject.transform.position;
-            Vector3 enemyPosition = transform.position;
-            Vector3 direction = playerPosition - enemyPosition;
-            if (direction.magnitude < 100)
+            if (Mediator.Player != null)
             {
-                me.PlayerNear(direction);
+                Vector3 playerPosition = Mediator.Player.GameObject.transform.position;
+                Vector3 enemyPosition = transform.position;
+                Vector3 direction = playerPosition - enemyPosition;
+                if (direction.magnitude < 100)
+                {
+                    me.PlayerNear(direction);
+                }
             }
+        }
+
+        if(me.CurrentlyHealth <= 0)
+        {
+            me.Die();
         }
     }
 }
