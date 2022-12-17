@@ -26,6 +26,7 @@ public class EnemyControl : MonoBehaviour
                 Vector3 playerPosition = Mediator.Player.GameObject.transform.position;
                 Vector3 enemyPosition = transform.position;
                 Vector3 direction = playerPosition - enemyPosition;
+                direction = new Vector3(direction.x, direction.y, 0);
                 if (direction.magnitude < 100)
                 {
                     me.PlayerNear(direction);

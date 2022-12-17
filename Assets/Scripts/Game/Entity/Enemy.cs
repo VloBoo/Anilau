@@ -16,7 +16,6 @@ public class Enemy : Entity
         }
         if (direction.magnitude > 1)
         {
-            direction = new Vector3(direction.x, direction.y, 0);
             direction.Normalize();
             gameObject.transform.position += direction * Time.deltaTime * speed;
 
