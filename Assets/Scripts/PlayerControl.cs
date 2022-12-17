@@ -18,24 +18,31 @@ public class PlayerControl : MonoBehaviour
     {
         if (Mediator.GameMod == 1)
         {
+            Vector2 direction = new Vector2(0, 0);
             if (Input.GetKey(KeyCode.W))
             {
-                transform.position += new Vector3(0, 1, 0) * Time.deltaTime * me.Speed;
+                direction += new Vector2(0, 1);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                transform.position += new Vector3(0, -1, 0) * Time.deltaTime * me.Speed;
+                direction += new Vector2(0, -1);
             }
             if (Input.GetKey(KeyCode.A))
             {
-                transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * me.Speed;
+                direction += new Vector2(-1, 0);
                 GetComponent<SpriteRenderer>().flipX = false;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.position += new Vector3(1, 0, 0) * Time.deltaTime * me.Speed;
+                direction += new Vector2(1, 0);
                 GetComponent<SpriteRenderer>().flipX = true;
             }
+            if (direction.magnitude > 1)
+            {
+                direction.Normalize();
+            }
+
+            me.GameObject.GetComponent<Rigidbody2D>().MovePosition(me.GameObject.GetComponent<Rigidbody2D>().position + direction * Time.deltaTime * me.Speed);
 
             if (Input.GetKey(KeyCode.Alpha1))
             {

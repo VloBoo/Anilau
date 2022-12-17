@@ -11,7 +11,7 @@ public class EnemyControl : MonoBehaviour
     {
         if (isSource)
         {
-            me = new Zombe(gameObject, 1, "Zombe", 10, 100, 10, 10, 3);
+            me = new Goblin(gameObject, 1, "Zombe", 10, 100, 10, 10, 3);
             Mediator.Enemies.Add(me);
         }
     }

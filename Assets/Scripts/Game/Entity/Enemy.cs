@@ -17,7 +17,7 @@ public class Enemy : Entity
         if (direction.magnitude > 1)
         {
             direction.Normalize();
-            gameObject.transform.position += direction * Time.deltaTime * speed;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(direction * Time.deltaTime * speed);
 
         }
     }

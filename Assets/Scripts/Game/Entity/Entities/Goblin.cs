@@ -1,7 +1,7 @@
 using UnityEngine;
-public class Zombe : Enemy
+public class Goblin : Enemy
 {
-    public Zombe(GameObject gameObject, int level, string name, int baseAttack, int baseHealth, int baseProtection, int basePower, float speed) : base(gameObject, level, name, baseAttack, baseHealth, baseProtection, basePower, speed)
+    public Goblin(GameObject gameObject, int level, string name, int baseAttack, int baseHealth, int baseProtection, int basePower, float speed) : base(gameObject, level, name, baseAttack, baseHealth, baseProtection, basePower, speed)
     {
     }
     public override void PlayerNear(Vector3 direction)
@@ -17,7 +17,7 @@ public class Zombe : Enemy
         if (direction.magnitude > 0.3f)
         {
             direction.Normalize();
-            gameObject.transform.position += direction * Time.deltaTime * speed;
+            gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position + direction * Time.deltaTime * speed);
 
         }
         if (direction.magnitude < 0.5f)
