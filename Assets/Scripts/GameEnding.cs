@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameEnding : MonoBehaviour
 {
     public SpriteRenderer background;
+    public GameObject UI;
     private int textTimer = 150;
     public Text text = null;
     public Text scoreText = null;
@@ -25,7 +26,7 @@ public class GameEnding : MonoBehaviour
             textTimer = 150;
             Mediator.Menu();
         }
-
+        UI.SetActive(false);
     }
     void FixedUpdate()
     {
@@ -36,6 +37,7 @@ public class GameEnding : MonoBehaviour
             if (textTimer == 0)
             {
                 text.text = "You Died";
+                scoreText.text = "Your score: " + Mediator.score;
             }
         }
     }

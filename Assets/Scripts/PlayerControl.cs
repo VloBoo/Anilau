@@ -8,8 +8,8 @@ public class PlayerControl : MonoBehaviour
     private Player me;
     void Start()
     {
-        me = new Player(gameObject, 1, "Player", 10, 100, 10, 50000, 8);
-        Mediator.Player = me;
+        me = new Player(gameObject, 1, "Player", 10, 100, 10, 5000, 8);
+        Mediator.player = me;
         Mediator.CameraTarget = transform;
     }
     void Update()
@@ -23,11 +23,11 @@ public class PlayerControl : MonoBehaviour
             }
             if (Input.GetMouseButtonDown(1))
             {
-                if (me.CurrentlyPower > 3000)
+                if (me.CurrentlyPower > 1000)
                 {
                     Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     me.Attack2(mousePosition);
-                    me.CurrentlyPower -= 3000;
+                    me.CurrentlyPower -= 1000;
                 }
 
             }

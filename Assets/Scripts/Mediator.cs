@@ -4,7 +4,7 @@ using UnityEngine;
 public class Mediator
 {
     public static int GameMod = 1;
-    public static Player Player;
+    public static Player player;
     public static List<Entity> Enemies = new List<Entity>();
     public static Transform CameraTarget;
     public static int score = 0;
@@ -18,10 +18,10 @@ public class Mediator
     {
         GameMod = 0;
         Debug.Log("Game Over");
-        Player.GameObject.transform.position = new Vector3(Player.GameObject.transform.position.x, Player.GameObject.transform.position.y, -2);
+        player.GameObject.transform.position = new Vector3(player.GameObject.transform.position.x, player.GameObject.transform.position.y, -2);
         // EndScene = GameObject.Instantiate(Resources.Load("Prefabs/EndScene") as GameObject);
         EndScene.SetActive(true);
-        EndScene.transform.position = new Vector3(Player.GameObject.transform.position.x, Player.GameObject.transform.position.y, -1);
+        EndScene.transform.position = new Vector3(player.GameObject.transform.position.x, player.GameObject.transform.position.y, -1);
     }
 
     public static void Menu()

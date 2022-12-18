@@ -34,7 +34,6 @@ public class HitController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("Hit");
             other.gameObject.GetComponent<EnemyControl>().me.TakeDamage(attack);
         }
     }

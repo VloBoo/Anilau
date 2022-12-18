@@ -25,7 +25,7 @@ public class Goblin : Enemy
         {
             if (cooldown==0)
             {
-                Mediator.Player.TakeDamage(MakeDamage());
+                Mediator.player.TakeDamage(MakeDamage());
                 cooldown = 40;
             }
         }

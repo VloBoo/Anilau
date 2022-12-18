@@ -25,9 +25,9 @@ public class EnemyControl : MonoBehaviour
         }
         if (Mediator.GameMod == 1)
         {
-            if (Mediator.Player != null)
+            if (Mediator.player != null)
             {
-                Vector3 playerPosition = Mediator.Player.GameObject.transform.position;
+                Vector3 playerPosition = Mediator.player.GameObject.transform.position;
                 Vector3 enemyPosition = transform.position;
                 Vector3 direction = playerPosition - enemyPosition;
                 direction = new Vector3(direction.x, direction.y, 0);
