@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Enemy me;
+    public Enemy me;
     public bool isSource = true;
     void Start()
     {
@@ -19,6 +19,10 @@ public class EnemyControl : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (me.Cooldown > 0)
+        {
+            me.Cooldown--;
+        }
         if (Mediator.GameMod == 1)
         {
             if (Mediator.Player != null)

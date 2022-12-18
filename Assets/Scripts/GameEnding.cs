@@ -8,6 +8,7 @@ public class GameEnding : MonoBehaviour
     public SpriteRenderer background;
     private int textTimer = 150;
     public Text text = null;
+    public Text scoreText = null;
     void Start()
     {
         Mediator.EndScene = gameObject;

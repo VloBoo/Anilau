@@ -12,14 +12,17 @@ public class Player : Entity
         Mediator.GameEnd();
     }
 
-    public void Attack1()
+    public void Attack1(Vector2 mousePosition)
     {
-        foreach (Enemy enemy in Mediator.Enemies){
-            if (Vector3.Distance(gameObject.transform.position, enemy.GameObject.transform.position) < 1)
-            {
-                enemy.TakeDamage(MakeDamage());
-            }
-        }
+        Vector2 direction = mousePosition - (Vector2)gameObject.transform.position;
+        direction.Normalize();
+        GameObject hit = GameObject.Instantiate(Resources.Load("Prefabs/Hit") as GameObject);
+        hit.transform.position = gameObject.transform.position + (Vector3)direction * 0.9f;
+        hit.GetComponent<HitController>().attack = baseAttack;
+        //rotate
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        hit.transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
     }
 
 }

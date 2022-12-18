@@ -7,6 +7,7 @@ public class Mediator
     public static Player Player;
     public static List<Entity> Enemies = new List<Entity>();
     public static Transform CameraTarget;
+    public static int score = 0;
 
 
     /////////////////////////////

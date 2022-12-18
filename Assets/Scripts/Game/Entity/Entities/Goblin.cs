@@ -14,19 +14,16 @@ public class Goblin : Enemy
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        if (direction.magnitude > 0.3f)
+        if (direction.magnitude > 0.5f)
         {
-            direction.Normalize();
-            gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position + direction * Time.deltaTime * speed);
+            Vector3 direction2 = new Vector3(direction.x, direction.y, 0);
+            direction2.Normalize();
+            gameObject.GetComponent<Rigidbody2D>().MovePosition(gameObject.transform.position + direction2 * Time.deltaTime * speed);
 
         }
-        if (direction.magnitude < 0.5f)
+        if (direction.magnitude < 1.2f)
         {
-            if (cooldown != 0)
-            {
-                cooldown--;
-            }
-            else
+            if (cooldown==0)
             {
                 Mediator.Player.TakeDamage(MakeDamage());
                 cooldown = 40;

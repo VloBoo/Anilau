@@ -23,6 +23,7 @@ public class Enemy : Entity
     }
     public override void Die()
     {
+        Mediator.score += 10;
         Mediator.Enemies.Remove(this);
         GameObject.Destroy(gameObject);
     }

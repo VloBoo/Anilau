@@ -12,6 +12,17 @@ public class PlayerControl : MonoBehaviour
         Mediator.Player = me;
         Mediator.CameraTarget = transform;
     }
+    void Update()
+    {
+        if (Mediator.GameMod == 1)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                me.Attack1(mousePosition);
+            }
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -43,11 +54,6 @@ public class PlayerControl : MonoBehaviour
             }
 
             me.GameObject.GetComponent<Rigidbody2D>().MovePosition(me.GameObject.GetComponent<Rigidbody2D>().position + direction * Time.deltaTime * me.Speed);
-
-            if (Input.GetKey(KeyCode.Alpha1))
-            {
-                me.Attack1();
-            }
 
             if (me.CurrentlyHealth <= 0)
             {

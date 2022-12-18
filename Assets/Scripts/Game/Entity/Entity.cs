@@ -103,6 +103,12 @@ public class Entity
         set { speed = value; }
     }
 
+    public int Cooldown
+    {
+        get { return cooldown; }
+        set { cooldown = value; }
+    }
+
     public override string ToString()
     {
         return "Entity" + GetHashCode() + "(Name: " + name + ", Level: " + level + ")";
